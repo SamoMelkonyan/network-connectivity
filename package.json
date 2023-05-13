@@ -1,0 +1,85 @@
+{
+  "name": "network-connectivity",
+  "version": "0.1.0",
+  "description": "A lightweight package for detecting and monitoring network connectivity in web applications.",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "author": {
+    "name": "Samvel Melkonyan",
+    "email": "melqonyan98@gmail.com",
+    "url": "https://www.linkedin.com/in/samvel-melkonyan/"
+  },
+  "license": "MIT",
+  "keywords": [
+    "network",
+    "connectivity",
+    "monitoring",
+    "web",
+    "network checker",
+    "connection checker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamoMelkonyan/network-connectivity"
+  },
+  "bugs": {
+    "url": "https://github.com/SamoMelkonyan/network-connectivity/issues",
+    "email": "melqonyan98@gmail.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "watch": "rollup -cw --bundleConfigAsCjs",
+    "prepare": "husky install",
+    "type_check": "npm run tsc --noEmit",
+    "lint": "eslint --ext .ts,.json **/*.{ts,json}",
+    "format": "prettier --write **/*.{ts,js,json,md}",
+    "publish_npm": "npm publish --latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": [
+      "yarn prettier --write"
+    ],
+    "*.{ts,json}": [
+      "yarn eslint"
+    ],
+    "*.{ts}": [
+      "yarn type_check"
+    ]
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@types/react": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "node-sass": "^8.0.0",
+    "prettier": "^2.8.3",
+    "react": "^18.2.0",
+    "rollup": "^3.21.6",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "sass": "^1.62.1",
+    "typescript": "^4.9.4"
+  }
+}
