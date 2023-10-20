@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { isOnline as isNetworkOnline } from '../utils';
 
-export const useConnection = (): any => {
+export const useConnection = (): { isOnline: boolean } => {
   const [isOnline, setIsOnline] = useState(isNetworkOnline());
 
   useEffect(() => {
