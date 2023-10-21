@@ -7,6 +7,9 @@
 
 ## Getting Started
 
+![Network Connectivity]https://github.com/SamoMelkonyan/network-connectivity/blob/master/network-connectivity.gif)
+
+
 ### Install the package:
 
 Using npm:
@@ -32,10 +35,11 @@ The `ConnectionBanner` component is designed to display online and offline statu
 
 | Prop Name             | Type                                  | Default Value    | Description                                                                                   |
 | --------------------- | ------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------- |
-| `hideOnlineBannerDelay` | `number`                        | `2000`            | The delay in milliseconds before hiding the online banner after a successful connection is detected. |
 | `alwaysShowBanner`    | `boolean`                       | `false`           | If set to `true`, the banner will always be displayed, regardless of the online/offline status.      |
+| `hideOnlineBannerDelay` | `number`                        | `2000`            | The delay in milliseconds before hiding the online banner after a successful connection is detected. This delay applies when `alwaysShowBanner` is set to `false` |
 | `onlineBannerContent` | `React.ReactElement` or `string` | `'Back online'`   | The content to display in the online status banner. It can be a React element or a string.           |
 | `offlineBannerContent` | `React.ReactElement` or `string` | `'No connection'` | The content to display in the offline status banner. It can be a React element or a string.          |
+| `placement`           | `'top'` or `'bottom'`                              | `'top'`        | The placement of the online status banner within the application UI. Can be set to `'top'` or `'bottom'`. |
 | `withPortal`          | `boolean`                           | `true`            | If set to `true`, the `ConnectionBanner` will use a portal to render the banner.                  |
 | `className`           | `string`                            |                   | Additional CSS class names to apply to the `ConnectionBanner` component.                         |
 
@@ -57,7 +61,7 @@ import { ConnectionBanner } from 'network-connectivity';
 const MyComponent = () => {
   return (
     <div>
-      <ConnectionBanner />
+      <ConnectionBanner alwaysShowBanner={true} />
     </div>
   )
 }

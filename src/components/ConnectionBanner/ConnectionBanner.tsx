@@ -3,9 +3,10 @@ import { createPortal } from 'react-dom';
 import { styled } from 'styled-components';
 import { isOnline as isNetworkOnline } from '../../utils';
 
-const Banner = styled.div<{ $isOnline: boolean }>`
+const Banner = styled.div<{ $isOnline: boolean; $placement: 'top' | 'bottom' }>`
   position: fixed;
-  top: 0;
+  top: ${props => (props.$placement === 'top' ? '0' : 'auto')};
+  bottom: ${props => (props.$placement === 'bottom' ? '0' : 'auto')};
   left: 0;
   right: 0;
   font-size: 16px;
@@ -25,6 +26,7 @@ interface ConnectionBannerProps extends HTMLDivElement {
   alwaysShowBanner?: boolean;
   onlineBannerContent?: React.ReactElement | string;
   offlineBannerContent?: React.ReactElement | string;
+  placement?: 'top' | 'bottom';
   withPortal?: boolean;
 }
 
@@ -38,6 +40,7 @@ export const ConnectionBanner = React.forwardRef(
       alwaysShowBanner = false,
       onlineBannerContent = 'Back online',
       offlineBannerContent = 'No connection',
+      placement = 'top',
       withPortal = true,
       className = '',
     } = props;
@@ -82,6 +85,7 @@ export const ConnectionBanner = React.forwardRef(
       return (
         <Banner
           $isOnline={isOnline}
+          $placement={placement}
           ref={ref}
           className={`connection-banner ${
             isOnline ? 'connection-banner-online' : 'connection-banner-offline'
