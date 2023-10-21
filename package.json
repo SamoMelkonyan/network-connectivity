@@ -1,6 +1,6 @@
 {
   "name": "network-connectivity",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "A lightweight package for detecting and monitoring network connectivity in web applications.",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
