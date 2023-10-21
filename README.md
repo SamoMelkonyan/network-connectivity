@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-![Network Connectivity](https://github.com/SamoMelkonyan/network-connectivity/raw/master/network-connectivity.gif)
+![Network Connectivity](https://github.com/SamoMelkonyan/network-connectivity/raw/master/assets/readme-header.gif)
 
 
 ### Install the package:
